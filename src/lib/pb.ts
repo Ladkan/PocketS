@@ -25,3 +25,23 @@ export async function updateNotifications(id:string){
     const res = await pb.collection('notifications').update(id, data)
     return res
 }
+
+export async function getInviteCode(id:string){
+    const res = await pb.collection("invite_codes").getOne(id)
+    return res
+}
+
+export async function Register(email:string, passwd: string, name: string, inviteby: string) {
+    const data = {
+        "email": email, 
+        "password": passwd,
+        "passwordConfirm": passwd,
+        "name": name,
+        "invitedBy": inviteby
+    }
+
+    const res = await pb.collection('users').create(data)
+
+    return pb.authStore.isValid
+
+}

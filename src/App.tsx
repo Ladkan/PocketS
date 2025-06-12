@@ -5,6 +5,7 @@ import ProtectedRoute from './lib/utils/ProtectedRoute'
 import Notifications from './pages/Notifications'
 import Login from './pages/Login'
 import Registere from './pages/Register'
+import Layout from './lib/layout'
 
 function App() {
 
@@ -12,11 +13,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />} />
-        <Route path='/invite/{id}' element={<Registere />} />
+        <Route path='/invite/:id' element={<Registere />} />
+        <Route element={<Layout />}>
           <Route element={<ProtectedRoute />}>
             <Route path='/' element={<Home/>} />
             <Route path='/notifications' element={<Notifications/>} />
           </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   )

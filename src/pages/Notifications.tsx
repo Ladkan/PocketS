@@ -5,13 +5,15 @@ import { pb } from "../lib/pb"
 
 function Notifications(){
     //@ts-expect-error
-    const { items:notifications } = useSelector((state) => state.notifications)
+    const { items:notifications, status } = useSelector((state) => state.notifications)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        //@ts-expect-error
-        dispatch(fetchNotifications(pb.authStore.record.id))
-    }, [])
+        if(status === 'idle'){
+            //@ts-expect-error
+            dispatch(fetchNotifications(pb.authStore.record.id))
+        }
+    }, [status])
 
     return(
         <div>

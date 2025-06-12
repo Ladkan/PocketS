@@ -49,21 +49,14 @@ cronAdd("__invite_code_inactive_remove__", "0 0 1 * *", () => {
 
 //Register user notification
 onRecordCreateExecute((e) => {
-    let notif = NotificationBuilder(e.record.get("invitedBy"),"USER","Invite accepted!","User " + e.record.get("name") + " used your invite code!");
-    $app.save(notif);
+    let record = new Record($app.findCollectionByNameOrId("notifications"));
+    record.set("userId", e.record.get("invitedBy"));
+    record.set("type", "USER");
+    record.set("title", "Invite accepted!");
+    record.set("message", "User " + e.record.get("name") + " used your invite code!");
+    record.set("isRead", false);
+    
+    $app.save(record);
 
     e.next();
 }, "users");
-
-
-function NotificationBuilder(userId, type, title, message){
-    let record = new Record($app.findCollectionByNameOrId("notifications"));
-    record.set("userId", userId);
-    record.set("type", type);
-    record.set("title", title);
-    record.set("message", message);
-    record.set("isRead", false);
-
-    return record
-
-}

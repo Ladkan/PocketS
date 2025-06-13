@@ -13,7 +13,8 @@ export async function LogOut(){
 }
 export async function getNotifications(id:string){
     const res = await pb.collection("notifications").getFullList({
-        filter: pb.filter("userId = {:id}", {id: id})
+        filter: pb.filter("userId = {:id}", {id: id}),
+        sort: '-created'
     })
     return res
 }
@@ -40,7 +41,7 @@ export async function Register(email:string, passwd: string, name: string, invit
         "invitedBy": inviteby
     }
 
-    const res = await pb.collection('users').create(data)
+    await pb.collection('users').create(data)
 
     return pb.authStore.isValid
 

@@ -1,7 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchNotifications, updateNotification } from "../lib/store/slices/notification.slice"
+import { fetchNotifications } from "../lib/store/slices/notification.slice"
 import { pb } from "../lib/pb"
+import '../lib/css/Notifications.scss'
+import NotificationsContainer from "../lib/ui/NotificationsContainer"
 
 function Notifications(){
     //@ts-expect-error
@@ -16,16 +18,15 @@ function Notifications(){
     }, [status])
 
     return(
-        <div>
-        {notifications.map((item:any) => ( 
-            //@ts-expect-error
-           <div onClick={() => dispatch(updateNotification(item.id))} key={item.id}>
-                <p>{item.title}</p>
-                <p>{item.message}</p>
-                <p>{item.isRead}</p>
-           </div>
-        ))}
-        </div>
+        <section className="notifications">
+                <div className="container max-w-4xl">
+                <div className="header">
+                    <h1>Notifications</h1>
+                    <p>Stay updated with your activities</p>
+                </div>
+                <NotificationsContainer data={notifications} />
+            </div>
+        </section>
     )
 }
 

@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom"
-import Header from "./ui/Header"
+import Sidebar from "./ui/Sidebar"
 
 function Layout(){
     return(
-        <>
-        <Header />
-        <Outlet />
-        </>
+        <div className="wrapper">
+        <Sidebar />
+        <main>
+            <div className="head">
+                <i className='bx  bx-menu' onClick={() => document.querySelector("aside")?.classList.toggle("close")}></i> 
+            </div>
+            <Outlet />
+        </main>
+        </div>
     )
 }
 

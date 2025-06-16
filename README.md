@@ -1,2 +1,2 @@
-# React + TypeScript + Vite + Redix + PocketBase
+# React + TypeScript + Vite + Redux + PocketBase
 

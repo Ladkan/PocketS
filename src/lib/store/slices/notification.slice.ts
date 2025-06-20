@@ -9,7 +9,7 @@ export const fetchNotifications = createAsyncThunk('notifications/fetch', async 
 export const updateNotification = createAsyncThunk('notifications/update', async (id:string) =>{
     const res = await updateNotifications(id)
     return res
-} )
+})
 
 const notificationSlice = createSlice({
     name: "notifications",
@@ -26,7 +26,7 @@ const notificationSlice = createSlice({
         builder.addCase(fetchNotifications.pending,(state) => {
             state.status = 'loading'
         }).addCase(fetchNotifications.fulfilled, (state, action) => {
-            state.status = "seccess",
+            state.status = "success",
             //@ts-expect-error
             state.items = action.payload
         }).addCase(fetchNotifications.rejected, (state) => {
@@ -41,6 +41,7 @@ const notificationSlice = createSlice({
             const index = state.items.findIndex(
                 (item:any) => item.id === action.payload.id
             )
+
             //@ts-expect-error
             state.items[index] = action.payload
         }).addCase(updateNotification.rejected, (state) => {

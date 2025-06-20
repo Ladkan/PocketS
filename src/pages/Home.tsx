@@ -1,7 +1,11 @@
+import Timeline from "../lib/ui/Timeline"
+
 function Home(){
+
+
     return(
         <section>
-        <h1>home</h1>
+            <Timeline />
         </section>
     )
 }

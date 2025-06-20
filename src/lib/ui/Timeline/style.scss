@@ -1,0 +1,111 @@
+@media screen {
+    .posts{
+        width: 100%;
+        height: 90dvh;
+        overflow: auto;
+        display: flex;
+        .relative{
+            position: relative;
+        }
+        .absolute{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .create{
+            display: flex;
+            flex-direction: column;
+            gap: calc(.25rem*2);
+            margin-bottom: calc(.25rem*4);
+            textarea{
+                resize: none;
+                height: 50px;
+                color: white;
+                padding: calc(.25rem*2);
+                border-radius: calc(.5rem + 4px);
+                background-color: #18181b;
+                border: 1px solid #303032;
+            }
+            button{
+                background-color: #18181b;
+                color: white;
+                padding: calc(.25rem*2);
+                outline: none;
+                border: 1px solid #303032;
+                border-radius: calc(.5rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: calc(.25rem*2);
+                &:hover{
+                    background-color: #303032;
+                }
+            }
+        }
+
+        .post{
+            background-color: #18181b;
+            border: 1px solid #303032;
+            border-radius: calc(.5rem  + 4px);
+            display: flex;
+            gap: calc(.25rem*4);
+            flex-direction: column;
+            margin-bottom: calc(.25rem*6);
+            padding: calc(.25rem*6);
+            position: relative;
+            .post_head{
+                display: flex;
+                align-items: center;
+                gap: calc(.25rem*2);
+                p{
+                    font-size: 1.25rem;
+                }
+                span{
+                    font-size: .90rem;
+                    line-height: 1.625;
+                    color: #9797A3;
+                }
+                .avatar{
+                    border-radius: .5rem;
+                    overflow: hidden;
+                    flex-shrink: 0;
+                    width: calc(.25rem*12);
+                    height: calc(.25rem*12);
+                    display: flex;
+                    position: relative;
+                    .placeholder{
+                        background-color: #303032;
+                    }
+                    img, .placeholder{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        aspect-ratio: 1;
+                    }
+                }
+            }
+            .message{
+                //display: flex;
+                //flex-direction: column;
+                a{
+                    color: #9797A3;
+                }
+                .picture{
+                    width: fit-content;
+                    display: flex;
+                    align-items: center;
+                    gap: calc(.25rem*2);
+                    background-color: #303032;
+                    padding: calc(.25rem*2);
+                }
+            }
+            .post_footer{
+                display: flex;
+                align-items: center;
+                gap: calc(.25rem*2);
+            }
+        }
+    }
+}

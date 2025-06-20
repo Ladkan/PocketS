@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getInviteCode, pb, Register } from "../lib/pb";
 
 function Registere(){

@@ -19,7 +19,7 @@ function Notifications(){
 
     return(
         <section className="notifications">
-                <div className="container max-w-4xl">
+            <div className="container max-w-4xl">
                 <div className="header">
                     <h1>Notifications</h1>
                     <p>Stay updated with your activities</p>

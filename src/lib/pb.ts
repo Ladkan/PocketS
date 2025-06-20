@@ -32,6 +32,28 @@ export async function getInviteCode(id:string){
     return res
 }
 
+export async function getInviteCodeByUser(id:string){
+    const res = await pb.collection("invite_codes").getList(1,1, {
+        filter: pb.filter("created_by = {:id}", {id: id})
+    })
+    return res
+}
+
+export async function createCode(id:string) {
+
+    const date = new Date()
+    date.setDate(date.getDate() + 30)
+
+    const data = {
+        created_by: id,
+        active: true,
+        expiration: date
+    }
+
+    const res = await pb.collection("invite_codes").create(data)
+    return res
+}
+
 export async function Register(email:string, passwd: string, name: string, inviteby: string) {
     const data = {
         "email": email, 
@@ -45,4 +67,29 @@ export async function Register(email:string, passwd: string, name: string, invit
 
     return pb.authStore.isValid
 
+}
+
+export async function getPosts(){
+    const res = await pb.collection('posts').getFullList({
+        sort: '-created',
+        filter: pb.filter("public = true"),
+        expand: "createdBy"
+    })
+    return res
+}
+
+export async function createPost(post:any){
+    const data = {
+        "message": post.message,
+        "createdBy": post.createdBy,
+        "public": post.public
+    }
+
+    const res = await pb.collection("posts").create(data)
+    return res
+}
+
+export async function deletePost(id:string) {
+    const res = await pb.collection("posts").delete(id)
+    return res
 }

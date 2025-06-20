@@ -1,0 +1,95 @@
+@media screen {
+    .user{
+        gap: calc(.25rem*2);
+        display: flex;
+        padding-inline: calc(.25rem*6);
+        margin-inline: auto;
+        .container{
+            max-width: 56rem;
+        }
+        .header{
+            background-color: #18181b;
+            border: 1px solid #303032;
+            border-radius: calc(.5rem  + 4px);
+            display: flex;
+            margin-bottom: calc(.25rem*6);
+            padding: calc(.25rem*6);
+            .content{
+                display: flex;
+                gap: calc(.25rem*4);
+                align-items: flex-start;
+                .avatar{
+                    flex-shrink: 0;
+                    width: calc(.25rem*24);
+                    height: calc(.25rem*24);
+                    border-radius: 3.40282e38px;
+                    overflow: hidden;
+                    display: flex;
+                    position: relative;
+                }
+                .text{
+                    flex: 1;
+                    .name{
+                        margin-bottom: calc(.25rem*3);
+                        p{
+                            font-size: 1.875rem;
+                            font-weight: bold;
+                        }
+                        span{
+                            color: #9797A3;
+                            font-size: 1.125rem;
+                        }
+                    }
+                    .created{
+                        color: #9797A3;
+                        gap: calc(.25rem*2);
+                        display: flex;
+                        align-items: center;
+                        font-size: .875rem;
+                    }
+                }
+            }
+        }
+        .invite_code{
+            background-color: #18181b;
+            border: 1px solid #303032;
+            border-radius: calc(.5rem  + 4px);
+            display: flex;
+            margin-bottom: calc(.25rem*6);
+            padding: calc(.25rem*6);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .line{
+                text-decoration: line-through;
+                color: #9797A3;
+            }
+            button{
+                background-color: #18181b;
+                color: white;
+                padding: calc(.25rem*2);
+                outline: none;
+                border: 1px solid #303032;
+                border-radius: calc(.5rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: calc(.25rem*2);
+                &:hover{
+                    background-color: #303032;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 64rem){
+  .user{
+    padding-inline: calc(.25rem*6);
+  }
+}
+@media (min-width: 48rem){
+  .user{
+    padding-block: calc(.25rem*4);
+  }
+}
